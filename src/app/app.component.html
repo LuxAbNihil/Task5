@@ -10,5 +10,8 @@
   <a routerLink="/upload">Upload</a>
   <a routerLink="/home">Home</a>
 </nav>
+<div *ngIf="isUserLoggedIn()">
+  <button id="logout-button" (click)="logout()">Logout</button>
+</div>
 
 <router-outlet></router-outlet>
