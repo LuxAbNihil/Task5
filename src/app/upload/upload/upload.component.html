@@ -1,0 +1,21 @@
+
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit(uploadForm.value)">
+  <div class="form-container">
+    <h1>Upload A Video Here!</h1>
+    <label>
+        Title:
+        <input type="text" id="videoTitle" name="videoTitle"/>
+    </label>
+    <div class="alert" *ngIf="!uploadForm.controls['title'].valid && uploadForm.controls['title'].touched">
+      {{titleValidationMessage}}
+    </div>
+    <label>
+      File:
+      <input type="file" id="inputFile" name="inputFile" accept="video/*"/>
+    </label>
+    <div class="alert" *ngIf="!uploadForm.controls['inputFile'].valid && uploadForm.controls['inputFile'].touched">
+      {{inputFileValidationMessage}}
+    </div>
+    <button class="btn btn-primary" type="submit" id="submit">Upload</button>
+  </div>
+</form>

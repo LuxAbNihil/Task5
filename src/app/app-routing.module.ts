@@ -13,11 +13,14 @@ const routes: Routes = [
   {path: 'upload', canActivate: [AuthGuard],
     loadChildren: 'app/upload/upload.module#UploadModule'},
   {path: 'editPage', canActivate: [AuthGuard],
-    loadChildren: 'app/edit-page/edit-page.module#EditPageModule'}
+    loadChildren: 'app/edit-page/edit-page.module#EditPageModule'},
+  {path: 'search',
+    loadChildren: 'app/search/search.module#SearchModule'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [AuthGuard],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,41 @@
+<div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+      <div class="form-container">
+        <div class="row columns">
+          <h1>Please Register Here!</h1>
+            <label>
+              Username:
+              <input type="text" id="username" required="required" name="username" formControlName="username"/>
+            </label>
+            <div class="alert" *ngIf="!checkIfValid('username') && checkIfTouched('username')">
+              {{titleAlert}}
+            </div>
+            <label>
+              Password:
+              <input type="password" id="password" required="required" name="password" formControlName="password"/>
+            </label>
+            <div class="alert" *ngIf="!checkIfValid('password') && checkIfTouched('password')">
+            </div>
+            <label>
+              Address:
+              <input type="text" id="address" name="address" formControlName="address"/>
+            </label>
+            <label>
+              Phone Number:
+              <input type="text" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber"/>
+            </label>
+            <div class="alert" *ngIf="!checkIfValid('phoneNumber') && checkIfTouched('phoneNumber')">
+              {{phoneNumberValidationMessage}}
+            </div>
+            <label>
+              Email:
+              <input type="text" id="email" name="email" formControlName="email"/>
+            </label>
+            <div class="alert" *ngIf="!checkIfValid('email') && checkIfTouched('email')">
+                {{emailValidationMessage}}
+            </div>
+           <button type="submit" class="button expanded" id="submit" [disabled]="!isFormValid()">Submit</button>
+        </div>
+      </div>
+   </form>
+</div>

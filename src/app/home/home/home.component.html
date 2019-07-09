@@ -1,0 +1,20 @@
+<div *ngIf="userAndVideoListContainer" class="table-container">
+      <table>
+        <tr>
+          <th>Index</th>
+          <th>Username</th>
+          <th>Address</th>
+          <th>PhoneNumber</th>
+        </tr>
+        <tr *ngFor="let user of userAndVideoListContainer; let i = index"
+        [ngClass]="{odd: odd, even: even}">
+          <td>{{i}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.phoneNumber}}</td>
+          <td><input type="button" id="edit" (click)="edit(user.username, user.id)" value="edit"></td>
+          <td><input type="button" id="delete" (click)="delete(user.username)" value="X"></td>
+        </tr>
+      </table>
+</div>
+
