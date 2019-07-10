@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
   searhTerm = '';
   urlPath = '';
   movieType = '';
+  videoUrl = 'http://localhost:8080/videosharebe/video/';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,10 +41,16 @@ export class SearchComponent implements OnInit {
     this.searchService.videoSearch(search.searchTerm)
     .subscribe(videos => {
       videos.forEach(video => {
-        const path = video.path;
+        let path = video.path;
         const extension = path.split('.').pop();
         video.movieType = 'video/' + extension;
+        path = this.videoUrl + video.username + '/' + video.title;
+        video.path = path;
         this.videos.push(video);
+        console.log(video.path);
+        console.log(video.title);
+        console.log(video.movieType);
+        console.log(video.username);
       });
     });
     console.log(this.getSearchFlag());

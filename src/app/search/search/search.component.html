@@ -23,10 +23,10 @@
       </tr>
       <tr *ngFor="let video of videos; let i= index" [ngClass]="{odd: odd, even:even}">
         <td>{{i}}</td>
-        <td>{{title}}</td>
+        <td>{{video.title}}</td>
         <td>
           <video width="320" height="240" controls>
-              <source src="{{video.Path}}" type="{{video.mediaType}}">
+              <source src="{{video.path}}" type="{{video.movieType}}">
                   Your browser does not support the video tag.
           </video>
         </td>

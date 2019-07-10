@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Video } from '../../../models/video';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 export class SearchService {
 
   private url = 'http://localhost:8080/videosharebe/upload/';
+  private headers = new HttpHeaders({'Content-Encoding': 'identity'});
 
   constructor(
     private http: HttpClient
@@ -14,7 +15,7 @@ export class SearchService {
 
   videoSearch(searchTerm: string): Observable<Video[]> {
     console.log(this.url + searchTerm);
-    return this.http.get<Video[]>(this.url + searchTerm);
+    return this.http.get<Video[]>(this.url + searchTerm, {headers: this.headers});
   }
 
   private handleError(error: any): Promise<any> {
