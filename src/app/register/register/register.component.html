@@ -8,13 +8,24 @@
               <input type="text" id="username" required="required" name="username" formControlName="username"/>
             </label>
             <div class="alert" *ngIf="!checkIfValid('username') && checkIfTouched('username')">
-              {{titleAlert}}
+              {{requiredMessage}}
             </div>
             <label>
               Password:
-              <input type="password" id="password" required="required" name="password" formControlName="password"/>
+              <input [(ngModel)]="password" type="password" id="password" required="required" name="password" formControlName="password"/>
             </label>
             <div class="alert" *ngIf="!checkIfValid('password') && checkIfTouched('password')">
+              {{requiredMessage}}
+            </div>
+            <label>
+              Confirm Password:
+              <input [(ngModel)]="confirmPassword" type="password" id="confirmPassword" required="required" name="confirmPassword" formControlName="confirmPassword">
+            </label>
+            <div class="alert" *ngIf="!checkIfValid('confirmPassword') && checkIfTouched('confirmPassword')">
+              {{requiredMessage}}
+            </div>
+            <div class="alert" *ngIf="!doPasswordsMatch(password, confirmPassword) && checkIfTouched('confirmPassword')">
+              {{passwordsDontMatchMessage}}
             </div>
             <label>
               Address:

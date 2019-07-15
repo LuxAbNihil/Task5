@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 export class SearchService {
 
   private url = 'http://localhost:8080/videosharebe/upload/';
-  private headers = new HttpHeaders({'Content-Encoding': 'identity'});
+  private headers = new HttpHeaders({'Content-Encoding': 'identity',});
 
   constructor(
     private http: HttpClient
