@@ -15,7 +15,11 @@ const routes: Routes = [
   {path: 'editPage', canActivate: [AuthGuard],
     loadChildren: 'app/edit-page/edit-page.module#EditPageModule'},
   {path: 'search',
-    loadChildren: 'app/search/search.module#SearchModule'}
+    loadChildren: 'app/search/search.module#SearchModule'},
+  {path: 'forgotPassword',
+    loadChildren: 'app/forgot-password/forgot-password.module#ForgotPasswordModule'},
+  {path: 'resetPassword',
+    loadChildren: 'app/reset-password/reset-password.module#ResetPasswordModule'}
 ];
 
 @NgModule({

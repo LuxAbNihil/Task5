@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   login: Login;
   userAndVideoListContainer: UserAndVideoListContainer;
   tokenParams: TokenParams;
+  ForgotPasswordFlag: boolean;
 
   username = '';
   password = '';
@@ -77,6 +78,9 @@ export class LoginComponent implements OnInit {
       return isValid;
     }
 
+    setForgotPasswordFlag(flag: boolean) {
+      this.ForgotPasswordFlag = flag;
+    }
     ngOnInit() {}
 
 

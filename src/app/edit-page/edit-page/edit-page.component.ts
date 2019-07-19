@@ -19,7 +19,6 @@ export class EditPageComponent implements OnInit {
   userId: number;
   user: User;
 
-  password = '';
   address = '';
   phoneNumber = '';
   email = '';
@@ -35,7 +34,6 @@ export class EditPageComponent implements OnInit {
     private router: Router
   ) {
     this.updateForm = formBuilder.group({
-      'password': [null],
       'address': [null],
       'phoneNumber': [null, Validators.compose([Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')])],
       'email': [null, Validators.email]

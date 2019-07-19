@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
     return isValid;
   }
 
-  // checks if a give field has been touched
+  // checks if a given field has been touched
   checkIfTouched(fieldName: string): Boolean {
     const wasTouched = this.registerForm.get(fieldName).touched;
     return wasTouched;

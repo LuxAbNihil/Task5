@@ -1,17 +1,23 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-  <div class="form-container">
-    <h1>Login Here</h1>
-      <label for="username">Username: </label>
-        <input type="text" id="username" name="username" required="required" formControlName="username"/>
-        <div class="alert" id="username-alert" *ngIf="!checkIfValid('username') && checkIfTouched('username')">
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <div class="form-container">
+      <h1>Login Here</h1>
+        <label for="username">Username: </label>
+          <input type="text" id="username" name="username" required="required" formControlName="username"/>
+          <div class="alert" id="username-alert" *ngIf="!checkIfValid('username') && checkIfTouched('username')">
+              {{validationMessage}}
+          </div>
+        <label for="password">Password: </label>
+         <input type="password" id="password" name="password" required="required" formControlName="password"/>
+         <div class="alert" id="password-alert" *ngIf="!checkIfValid('password') && checkIfTouched('password')">
             {{validationMessage}}
         </div>
-      <label for="password">Password: </label>
-       <input type="password" id="password" name="password" required="required" formControlName="password"/>
-       <div class="alert" id="password-alert" *ngIf="!checkIfValid('password') && checkIfTouched('password')">
-          {{validationMessage}}
-      </div>
-      <button type="submit" class="button expanded" id="submit" [disabled]="!isFormValid()">Submit</button>
-  </div>
-</form>
+        <button type="submit" class="button expanded" id="submit" [disabled]="!isFormValid()">Submit</button>
+        <div class="forgot-password">
+          <a routerLink="../forgotPassword">Forgot Password?</a>
+        </div>
+    </div>
+  </form>
+</div>
+
 
